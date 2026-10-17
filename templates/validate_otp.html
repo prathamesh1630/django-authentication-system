@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Verify OTP | Account Portal{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-12 col-md-8 col-lg-6">
+        <div class="card auth-card mx-auto">
+            <div class="card-body">
+                <div class="text-center mb-4">
+                    <h1 class="h3 fw-bold">Verify your OTP</h1>
+                    <p class="text-secondary mb-0">Enter the verification code sent to you.</p>
+                </div>
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <button type="submit" class="btn btn-primary w-100 mt-3">Verify code</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}Sign out | Account Portal{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-12 col-md-8 col-lg-6">
+        <div class="card auth-card mx-auto">
+            <div class="card-body text-center">
+                <div class="fs-1 mb-3">👋</div>
+                <h1 class="h3 fw-bold">Sign out?</h1>
+                <p class="text-secondary">Are you sure you want to sign out of your account?</p>
+                <form method="post" class="d-flex flex-column flex-sm-row justify-content-center gap-2 mt-4">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">Yes, sign out</button>
+                    <a href="{% url 'home' %}" class="btn btn-outline-secondary">No, go back</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

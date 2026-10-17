@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Sign in | Account Portal{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-12 col-md-8 col-lg-6">
+        <div class="card auth-card mx-auto">
+            <div class="card-body">
+                <div class="text-center mb-4">
+                    <h1 class="h3 fw-bold">Welcome back</h1>
+                    <p class="text-secondary mb-0">Sign in to continue to your account.</p>
+                </div>
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <button type="submit" class="btn btn-primary w-100 mt-3">Sign in</button>
+                </form>
+                <div class="text-center mt-3">
+                    <a href="{% url 'forgotpassword' %}">Forgot password?</a>
+                </div>
+                <hr class="my-4">
+                <p class="text-center mb-0">Don't have an account? <a href="{% url 'register' %}">Sign up</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

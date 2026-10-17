@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}Home | Account Portal{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-12 col-lg-8">
+        <div class="card auth-card mx-auto">
+            <div class="card-body text-center">
+                <div class="display-5 mb-3">👋</div>
+                <h1 class="h2 fw-bold">Welcome, {{ request.user }}!</h1>
+                <p class="text-secondary mb-4">You are signed in. Manage your account from here.</p>
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                    <a href="{% url 'updatepassword' %}" class="btn btn-primary">Change password</a>
+                    <a href="{% url 'signout' %}" class="btn btn-outline-danger">Sign out</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
